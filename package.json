@@ -1,0 +1,33 @@
+{
+  "name": "react-material-design-lite",
+  "version": "1.0.0",
+  "description": "React Components for Material Design Lite",
+  "main": "react-material.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vobradovich/react-material-design-lite.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Vadim Obradovich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vobradovich/react-material-design-lite/issues"
+  },
+  "homepage": "https://github.com/vobradovich/react-material-design-lite#readme",
+  "devDependencies": {
+    "babel": "^5.8.9",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-typescript": "^2.8.0",
+    "tsd": "^0.6.0-beta.5",
+    "typescript": "^1.6.0-dev.20150726"
+  }
+}
