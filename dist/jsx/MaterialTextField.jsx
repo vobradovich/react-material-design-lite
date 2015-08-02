@@ -7,12 +7,11 @@ class MaterialTextField extends React.Component {
             "mdl-textfield--floating-label": this.props.floatingLabel,
             "is-upgraded": this.props.isUpgraded
         });
-        //var children = this.props.children;
-        //var errorMessage = this.props.errorMessage;
         var { children, errorMessage } = this.props;
+        var props = _objectWithoutProperties(this.props, ["children", "errorMessage"]);
         var error = this.props.pattern !== "undefined" ? (<span className="mdl-textfield__error">{errorMessage}</span>) : null;
         return (<div className={classList}>
-                <input {...this.props} className="mdl-textfield__input" type="text" id={this.props.id}/>
+                <input {...props} className="mdl-textfield__input" type="text" id={this.props.id}/>
                 <label className="mdl-textfield__label" htmlFor={this.props.id}>{children}</label>
                 {error}
             </div>);

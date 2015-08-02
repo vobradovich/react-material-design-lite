@@ -9,20 +9,14 @@ class MaterialCard extends React.Component<any, any> {
         shadow: 2   
     }
 
-    constructor(props) {
-        super(props);        
-    }
-
     render() {
-        var classList = ["mdl-card"];
-
-        if (this.props.shadow > 0) {
-            var shadowClass = "mdl-shadow--" + this.props.shadow + "dp";
-            classList.push(shadowClass);
-        }
-        
+        var className = React.addons.classSet({
+            "mdl-card": true
+        });
+        className += this.props.shadow > 0 ? " mdl-shadow--" + this.props.shadow + "dp" : "";
+                
         return (
-            <div {...this.props} className={classList.join(" ")}>
+            <div {...this.props} className={className}>
             </div>
         );
     }
@@ -33,29 +27,20 @@ class MaterialCardTitle extends React.Component<any, any> {
         expand: React.PropTypes.bool
     }
 
-    constructor(props) {
-        super(props);        
-    }
-
     render() {
-        var classList = ["mdl-card__title"];
-
-        if (this.props.expand) {
-            classList.push("mdl-card--expand");
-        }
-
+        var className = React.addons.classSet({
+            "mdl-card__title": true,
+            "mdl-card--expand": this.props.expand
+        });
+        
         return (
-            <div {...this.props} className={classList.join(" ")}>
+            <div {...this.props} className={className}>
             </div>
         );
     }
 }
 
 class MaterialCardTitleText extends React.Component<any, any> {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <h2 className="mdl-card__title-text">{this.props.children}</h2>
@@ -64,30 +49,18 @@ class MaterialCardTitleText extends React.Component<any, any> {
 }
 
 class MaterialCardMedia extends React.Component<any, any> {
-    constructor(props) {
-        super(props);        
-    }
-
     render() {
-        var classList = ["mdl-card__media"];
-
         return (
-            <div {...this.props} className={classList.join(" ")}>
+            <div {...this.props} className="mdl-card__media">
             </div>
         );
     }
 }
 
 class MaterialCardSupportingText extends React.Component<any, any> {
-    constructor(props) {
-        super(props);        
-    }
-
-    render() {
-        var classList = ["mdl-card__supporting-text"];
-
+    render() {        
         return (
-            <div {...this.props} className={classList.join(" ")}>
+            <div {...this.props} className="mdl-card__supporting-text">
             </div>
         );
     }
@@ -98,19 +71,14 @@ class MaterialCardActions extends React.Component<any, any> {
         border: React.PropTypes.bool
     }
 
-    constructor(props) {
-        super(props);        
-    }
-
     render() {
-        var classList = ["mdl-card__actions"];
-
-        if(this.props.border) {
-            classList.push("mdl-card--border");
-        }
+        var className = React.addons.classSet({
+            "mdl-card__actions": true,
+            "mdl-card--border": this.props.border
+        });
 
         return (
-            <div {...this.props} className={classList.join(" ")}>
+            <div {...this.props} className={className}>
             </div>
         );
     }

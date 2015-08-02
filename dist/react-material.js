@@ -938,8 +938,6 @@ var MaterialTabsPanel = (function (_React$Component26) {
         _get(Object.getPrototypeOf(MaterialTabsPanel.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    /// <reference path="../typings/tsd.d.ts" />
-
     _createClass(MaterialTabsPanel, [{
         key: 'render',
         value: function render() {
@@ -980,8 +978,11 @@ var MaterialTextField = (function (_React$Component27) {
                 "is-upgraded": this.props.isUpgraded
             });
 
-            var children = this.props.children;
-            var errorMessage = this.props.errorMessage;
+            var _props6 = this.props;
+            var children = _props6.children;
+            var errorMessage = _props6.errorMessage;
+
+            var props = _objectWithoutProperties(_props6, ['children', 'errorMessage']);
 
             var error = this.props.pattern !== "undefined" ? React.createElement(
                 'span',
@@ -992,7 +993,7 @@ var MaterialTextField = (function (_React$Component27) {
             return React.createElement(
                 'div',
                 { className: classList },
-                React.createElement('input', _extends({}, this.props, { className: "mdl-textfield__input", type: "text", id: this.props.id })),
+                React.createElement('input', _extends({}, props, { className: "mdl-textfield__input", type: "text", id: this.props.id })),
                 React.createElement(
                     'label',
                     { className: "mdl-textfield__label", htmlFor: this.props.id },

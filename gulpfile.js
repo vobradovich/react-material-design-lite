@@ -31,6 +31,16 @@ gulp.task("tsx-jsx", function () {
   return tsResult.js.pipe(gulp.dest('dist/jsx'));  
 });
 
+// JSX
+gulp.task("tsx-jsx-js", ["tsx-jsx"], function () {  
+  return gulp.src(["dist/jsx/**/*.jsx"])
+    .pipe($.sourcemaps.init())
+    .pipe($.concat("react-material-tsx-jsx-js.js"))
+    .pipe(babel({ stage: 0 }))
+    .pipe($.sourcemaps.write("."))
+    .pipe(gulp.dest("dist"));
+});
+
 // TSX
 gulp.task("tsx-js", function () {
   var tsResult = gulp.src('tsx/**/*.tsx')
@@ -44,5 +54,9 @@ gulp.task("tsx-js", function () {
   return tsResult.js
     .pipe($.sourcemaps.write("."))
     .pipe(gulp.dest('dist'));  
+});
+
+gulp.task("build", ["tsx-jsx-js", "tsx-js", "jsx-js"], function (c) {
+  return c();
 });
 

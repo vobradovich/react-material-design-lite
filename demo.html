@@ -13,12 +13,12 @@
 
     <!-- Page styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
-    <link rel="stylesheet" href="../dist/material.min.css">
-    <link rel="stylesheet" href="../dist/components/demos.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-pink.min.css">
+
     <script src="https://fb.me/react-with-addons-0.13.3.js"></script>
-    <script src="../node_modules/gulp-babel/node_modules/babel-core/browser-polyfill.js"></script>
-    <script src="../dist/material.js"></script>
-    <script src="../dist/react-material.js"></script>
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
+    <script src="./node_modules/gulp-babel/node_modules/babel-core/browser-polyfill.js"></script>
+    <script src="./dist/react-material-tsx-jsx-js.js"></script>
     
     <style>
     .mdl-cell {
@@ -213,44 +213,44 @@
 
       var Table = React.createFactory(MaterialDataTable);
       var Column = React.createFactory(MaterialTableColumn);
-      React.render(
-        React.DOM.div({},
-          Table({ data: data, selectable: true },
-            Column({ dataField: "Id", valueRender: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
-            Column({ dataField: "Title", nonNumeric: true }, "Item Title"),
-            Column({ dataField: "Active", nonNumeric: false, valueRender: function(item, header, rowIndex) { return Checkbox({ ripple: true, disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex, onChange: function(e) { console.log(e.target.checked)} }) } }, "Item Active")
-          )
-        ), document.getElementById("Table")
-      );
+      // React.render(
+      //   React.DOM.div({},
+      //     Table({ data: data, selectable: true },
+      //       Column({ dataField: "Id", valueRender: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
+      //       Column({ dataField: "Title", nonNumeric: true }, "Item Title"),
+      //       Column({ dataField: "Active", nonNumeric: false, valueRender: function(item, header, rowIndex) { return Checkbox({ ripple: true, disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex, onChange: function(e) { console.log(e.target.checked)} }) } }, "Item Active")
+      //     )
+      //   ), document.getElementById("Table")
+      // );
 
 
-      var selectRow = function(e, rowIndex) {
-        if (rowIndex > -1) {
-          data[rowIndex].selected = e.target.checked;
-        }
-        else {
-          data.forEach(function(item) {
-            item.selected = e.target.checked;
-          });
-        }
-        renderTable(data);
-      };      
-
-      var checkbox = function(item, header, rowIndex) {
-        return Checkbox({ ripple: true, checked: item.selected, id: "selected" + rowIndex, onChange: function(e) { selectRow(e, rowIndex) }, isUpgraded: true });
-      };
-
-      var renderTable = function(data) {
-        React.render(
-          Table({ data: data, rowSelector: function(item, rowIndex) { return item.selected } },
-            Column({ dataField: "selected", valueRender: checkbox }, Checkbox({ ripple: true, disabled: false, defaultChecked: false, id: "selected-1", onChange: function(e) { return selectRow(e, -1) } }) ),
-            Column({ dataField: "Id", valueRender: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
-            Column({ dataField: "Title", nonNumeric: true }, "Item Title"),
-            Column({ dataField: "Active", nonNumeric: false, valueRender: function(item, header, rowIndex) { return Checkbox({ disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex }) } }, "Item Active")
-          ), document.getElementById("Table2")
-        );
-      };
-      renderTable(data);
+//       var selectRow = function(e, rowIndex) {
+//         if (rowIndex > -1) {
+//           data[rowIndex].selected = e.target.checked;
+//         }
+//         else {
+//           data.forEach(function(item) {
+//             item.selected = e.target.checked;
+//           });
+//         }
+//         renderTable(data);
+//       };      
+// 
+//       var checkbox = function(item, header, rowIndex) {
+//         return Checkbox({ ripple: true, checked: item.selected, id: "selected" + rowIndex, onChange: function(e) { selectRow(e, rowIndex) }, isUpgraded: true });
+//       };
+// 
+//       var renderTable = function(data) {
+//         React.render(
+//           Table({ data: data, rowSelector: function(item, rowIndex) { return item.selected } },
+//             Column({ dataField: "selected", valueRender: checkbox }, Checkbox({ ripple: true, disabled: false, defaultChecked: false, id: "selected-1", onChange: function(e) { return selectRow(e, -1) } }) ),
+//             Column({ dataField: "Id", valueRender: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
+//             Column({ dataField: "Title", nonNumeric: true }, "Item Title"),
+//             Column({ dataField: "Active", nonNumeric: false, valueRender: function(item, header, rowIndex) { return Checkbox({ disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex }) } }, "Item Active")
+//           ), document.getElementById("Table2")
+//         );
+//       };
+//       renderTable(data);
 
       var Menu = React.createFactory(MaterialMenu);
       var MenuItem = React.createFactory(MaterialMenuItem);
