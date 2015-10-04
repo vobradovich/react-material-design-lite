@@ -1,5 +1,8 @@
 /// <reference path="../typings/tsd.d.ts" />
 class MaterialCard extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         var className = React.addons.classSet({
             "mdl-card": true
@@ -16,6 +19,9 @@ MaterialCard.defaultProps = {
     shadow: 2
 };
 class MaterialCardTitle extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         var className = React.addons.classSet({
             "mdl-card__title": true,
@@ -46,6 +52,9 @@ class MaterialCardSupportingText extends React.Component {
     }
 }
 class MaterialCardActions extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         var className = React.addons.classSet({
             "mdl-card__actions": true,

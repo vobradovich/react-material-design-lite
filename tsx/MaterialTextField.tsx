@@ -22,20 +22,21 @@ class MaterialTextField extends React.Component<any, any> {
     }
 
     render() {
-        var classList = React.addons.classSet({
-            "mdl-textfield" : true,
-            "mdl-js-textfield" : true,
-            "mdl-textfield--floating-label": this.props.floatingLabel,
-            "is-upgraded": this.props.isUpgraded
-        });
-
         var {
             children,
             errorMessage
         } = this.props;
         var props = _objectWithoutProperties(this.props, ["children", "errorMessage"]);
 
-        var error = this.props.pattern !== "undefined" ? (<span className="mdl-textfield__error">{errorMessage}</span>) : null;
+        var classList = React.addons.classSet({
+            "mdl-textfield" : true,
+            "mdl-js-textfield" : true,
+            "mdl-textfield--floating-label": this.props.floatingLabel,
+            "is-invalid": !!errorMessage,
+            "is-upgraded": this.props.isUpgraded
+        });
+
+        var error = !!errorMessage ? (<span className="mdl-textfield__error">{errorMessage}</span>) : null;
 
         return (            
             <div className={classList}>

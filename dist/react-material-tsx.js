@@ -42,8 +42,8 @@ var MaterialButton = (function (_super) {
 /// <reference path="../typings/tsd.d.ts" />
 var MaterialCard = (function (_super) {
     __extends(MaterialCard, _super);
-    function MaterialCard() {
-        _super.apply(this, arguments);
+    function MaterialCard(props) {
+        _super.call(this, props);
     }
     MaterialCard.prototype.render = function () {
         var className = React.addons.classSet({
@@ -62,8 +62,8 @@ var MaterialCard = (function (_super) {
 })(React.Component);
 var MaterialCardTitle = (function (_super) {
     __extends(MaterialCardTitle, _super);
-    function MaterialCardTitle() {
-        _super.apply(this, arguments);
+    function MaterialCardTitle(props) {
+        _super.call(this, props);
     }
     MaterialCardTitle.prototype.render = function () {
         var className = React.addons.classSet({
@@ -109,8 +109,8 @@ var MaterialCardSupportingText = (function (_super) {
 })(React.Component);
 var MaterialCardActions = (function (_super) {
     __extends(MaterialCardActions, _super);
-    function MaterialCardActions() {
-        _super.apply(this, arguments);
+    function MaterialCardActions(props) {
+        _super.call(this, props);
     }
     MaterialCardActions.prototype.render = function () {
         var className = React.addons.classSet({
@@ -558,15 +558,16 @@ var MaterialTextField = (function (_super) {
         _super.apply(this, arguments);
     }
     MaterialTextField.prototype.render = function () {
+        var _a = this.props, children = _a.children, errorMessage = _a.errorMessage;
+        var props = _objectWithoutProperties(this.props, ["children", "errorMessage"]);
         var classList = React.addons.classSet({
             "mdl-textfield": true,
             "mdl-js-textfield": true,
             "mdl-textfield--floating-label": this.props.floatingLabel,
+            "is-invalid": !!errorMessage,
             "is-upgraded": this.props.isUpgraded
         });
-        var _a = this.props, children = _a.children, errorMessage = _a.errorMessage;
-        var props = _objectWithoutProperties(this.props, ["children", "errorMessage"]);
-        var error = this.props.pattern !== "undefined" ? (React.createElement("span", {"className": "mdl-textfield__error"}, errorMessage)) : null;
+        var error = !!errorMessage ? (React.createElement("span", {"className": "mdl-textfield__error"}, errorMessage)) : null;
         return (React.createElement("div", {"className": classList}, React.createElement("input", React.__spread({}, props, {"className": "mdl-textfield__input", "type": "text", "id": this.props.id})), React.createElement("label", {"className": "mdl-textfield__label", "htmlFor": this.props.id}, children), error));
     };
     ;

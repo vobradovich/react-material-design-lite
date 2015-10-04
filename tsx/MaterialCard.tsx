@@ -8,6 +8,10 @@ class MaterialCard extends React.Component<any, any> {
     static defaultProps = {
         shadow: 2   
     }
+    
+    constructor(props) {
+		super(props);
+	}
 
     render() {
         var className = React.addons.classSet({
@@ -26,6 +30,10 @@ class MaterialCardTitle extends React.Component<any, any> {
     static propTypes = {
         expand: React.PropTypes.bool
     }
+    
+    constructor(props) {
+		super(props);
+	}
 
     render() {
         var className = React.addons.classSet({
@@ -71,6 +79,10 @@ class MaterialCardActions extends React.Component<any, any> {
         border: React.PropTypes.bool
     }
 
+    constructor(props) {
+        super(props);
+    }
+    
     render() {
         var className = React.addons.classSet({
             "mdl-card__actions": true,

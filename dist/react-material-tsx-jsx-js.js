@@ -61,10 +61,10 @@ MaterialButton.CssClasses_ = {
 var MaterialCard = (function (_React$Component2) {
     _inherits(MaterialCard, _React$Component2);
 
-    function MaterialCard() {
+    function MaterialCard(props) {
         _classCallCheck(this, MaterialCard);
 
-        _get(Object.getPrototypeOf(MaterialCard.prototype), "constructor", this).apply(this, arguments);
+        _get(Object.getPrototypeOf(MaterialCard.prototype), "constructor", this).call(this, props);
     }
 
     _createClass(MaterialCard, [{
@@ -91,10 +91,10 @@ MaterialCard.defaultProps = {
 var MaterialCardTitle = (function (_React$Component3) {
     _inherits(MaterialCardTitle, _React$Component3);
 
-    function MaterialCardTitle() {
+    function MaterialCardTitle(props) {
         _classCallCheck(this, MaterialCardTitle);
 
-        _get(Object.getPrototypeOf(MaterialCardTitle.prototype), "constructor", this).apply(this, arguments);
+        _get(Object.getPrototypeOf(MaterialCardTitle.prototype), "constructor", this).call(this, props);
     }
 
     _createClass(MaterialCardTitle, [{
@@ -179,10 +179,10 @@ var MaterialCardSupportingText = (function (_React$Component6) {
 var MaterialCardActions = (function (_React$Component7) {
     _inherits(MaterialCardActions, _React$Component7);
 
-    function MaterialCardActions() {
+    function MaterialCardActions(props) {
         _classCallCheck(this, MaterialCardActions);
 
-        _get(Object.getPrototypeOf(MaterialCardActions.prototype), "constructor", this).apply(this, arguments);
+        _get(Object.getPrototypeOf(MaterialCardActions.prototype), "constructor", this).call(this, props);
     }
 
     _createClass(MaterialCardActions, [{
@@ -861,18 +861,19 @@ var MaterialTextField = (function (_React$Component26) {
     _createClass(MaterialTextField, [{
         key: "render",
         value: function render() {
-            var classList = React.addons.classSet({
-                "mdl-textfield": true,
-                "mdl-js-textfield": true,
-                "mdl-textfield--floating-label": this.props.floatingLabel,
-                "is-upgraded": this.props.isUpgraded
-            });
             var _props = this.props;
             var children = _props.children;
             var errorMessage = _props.errorMessage;
 
             var props = _objectWithoutProperties(this.props, ["children", "errorMessage"]);
-            var error = this.props.pattern !== "undefined" ? React.createElement(
+            var classList = React.addons.classSet({
+                "mdl-textfield": true,
+                "mdl-js-textfield": true,
+                "mdl-textfield--floating-label": this.props.floatingLabel,
+                "is-invalid": !!errorMessage,
+                "is-upgraded": this.props.isUpgraded
+            });
+            var error = !!errorMessage ? React.createElement(
                 "span",
                 { className: "mdl-textfield__error" },
                 errorMessage

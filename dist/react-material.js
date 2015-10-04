@@ -971,20 +971,21 @@ var MaterialTextField = (function (_React$Component27) {
     _createClass(MaterialTextField, [{
         key: 'render',
         value: function render() {
-            var classList = React.addons.classSet({
-                "mdl-textfield": true,
-                "mdl-js-textfield": true,
-                "mdl-textfield--floating-label": this.props.floatingLabel,
-                "is-upgraded": this.props.isUpgraded
-            });
-
             var _props6 = this.props;
             var children = _props6.children;
             var errorMessage = _props6.errorMessage;
 
             var props = _objectWithoutProperties(_props6, ['children', 'errorMessage']);
 
-            var error = this.props.pattern !== "undefined" ? React.createElement(
+            var classList = React.addons.classSet({
+                "mdl-textfield": true,
+                "mdl-js-textfield": true,
+                "mdl-textfield--floating-label": this.props.floatingLabel,
+                "is-invalid": !!errorMessage,
+                "is-upgraded": this.props.isUpgraded
+            });
+
+            var error = !!errorMessage ? React.createElement(
                 'span',
                 { className: "mdl-textfield__error" },
                 errorMessage

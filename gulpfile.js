@@ -10,7 +10,7 @@ gulp.task('default', ['jsx-js', 'tsx-jsx'], function (cb) {
   return cb;
 });
 
-// JSX
+// JSX to JS
 gulp.task("jsx-js", function () {  
   return gulp.src(["jsx/**/*.jsx"])
     .pipe($.sourcemaps.init())
@@ -20,7 +20,7 @@ gulp.task("jsx-js", function () {
     .pipe(gulp.dest("dist"));
 });
 
-// TSX
+// TSX to JSX
 gulp.task("tsx-jsx", function () {
   var tsResult = gulp.src('tsx/**/*.tsx')
     .pipe(ts({
@@ -31,7 +31,7 @@ gulp.task("tsx-jsx", function () {
   return tsResult.js.pipe(gulp.dest('dist/jsx'));  
 });
 
-// JSX
+// JSX to JS
 gulp.task("tsx-jsx-js", ["tsx-jsx"], function () {  
   return gulp.src(["dist/jsx/**/*.jsx"])
     .pipe($.sourcemaps.init())
@@ -41,7 +41,7 @@ gulp.task("tsx-jsx-js", ["tsx-jsx"], function () {
     .pipe(gulp.dest("dist"));
 });
 
-// TSX
+// TSX to JS
 gulp.task("tsx-js", function () {
   var tsResult = gulp.src('tsx/**/*.tsx')
     .pipe($.sourcemaps.init())
